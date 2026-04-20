@@ -9,13 +9,5 @@
 */
 
 pub fn apply_twice<F: Fn(i32) -> i32>(x: i32, f: F) -> i32 {
-    // return f(f(x));
-    // Step 1: apply the function once
-    let first_result = f(x);
-    
-    // Step 2: apply the function again on the result
-    let second_result = f(first_result);
-
-    // Step 3: return the final result
-    second_result
+    todo!()
 }
