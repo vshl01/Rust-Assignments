@@ -9,5 +9,10 @@
 */
 
 pub fn sum_of_squares(values: &[i32]) -> i32 {
-    todo!()
+    // values.iter().map(|x| x * x).sum()
+    let mut sum = 0;
+    for val in values {
+        sum += val * val;
+    }
+    return sum;
 }

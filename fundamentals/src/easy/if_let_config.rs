@@ -10,5 +10,9 @@
 */
 
 pub fn get_config(value: Option<String>) -> String {
-    todo!()
+  // value.unwrap_or(String::from("default"))
+    match value {
+        Some(a) => a,
+        None => String::from("default")
+    }
 }
