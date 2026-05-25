@@ -18,5 +18,20 @@ pub enum ValidationError {
 }
 
 pub fn validate_username(username: &str) -> Result<(), ValidationError> {
-    todo!()
+    let len = username.chars().count();
+    if len < 3 {
+        return Err(ValidationError::TooShort);
+    }
+
+    if len > 20 {
+        return Err(ValidationError::TooLong);
+    }
+
+    for ch in username.chars() {
+        if !(ch.is_alphanumeric() || ch == '_') {
+            return Err(ValidationError::InvalidChar(ch));
+        }
+    }
+
+    Ok(())
 }
