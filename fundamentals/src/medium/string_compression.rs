@@ -10,5 +10,30 @@
 */
 
 pub fn compress(s: &str) -> String {
-    todo!()
+    let mut compressed = String::new();
+    let mut chars = s.chars();
+
+    let mut current = chars.next().unwrap();
+    let mut count = 1;
+
+    for ch in chars {
+        if ch == current {
+            count += 1;
+        } else {
+            compressed.push(current);
+            compressed.push_str(&count.to_string());
+
+            current = ch;
+            count = 1;
+        }
+    }
+
+    compressed.push(current);
+    compressed.push_str(&count.to_string());
+
+    if compressed.len() < s.len() {
+        compressed
+    } else {
+        s.to_string()
+    }
 }
