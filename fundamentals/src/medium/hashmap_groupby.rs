@@ -12,5 +12,16 @@
 use std::collections::HashMap;
 
 pub fn group_by_first_letter(words: Vec<String>) -> HashMap<char, Vec<String>> {
-    todo!()
+    let mut map: HashMap<char, Vec<String>> = HashMap::new();
+
+    for word in words {
+        if word.is_empty() {
+            continue;
+        }
+
+        let first = word.chars().next().unwrap().to_ascii_lowercase();
+
+        map.entry(first).or_insert(Vec::new()).push(word);
+    }
+    map
 }
